@@ -5,30 +5,32 @@
   <head>
     <title>Page Title</title>
        <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.6.7/firebase.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyA4X-pCnm0HjoVGpil15PEK2YV2afsyThM",
+    authDomain: "try1-f3ea2.firebaseapp.com",
+    databaseURL: "https://try1-f3ea2.firebaseio.com",
+    projectId: "try1-f3ea2",
+    storageBucket: "try1-f3ea2.appspot.com",
+    messagingSenderId: "417643392379"
+  };
+  firebase.initializeApp(config);
+</script>
     <script>
-// Initialize Firebase
-var config = {
-apiKey: "AIzaSyBS43atOOyf5ohw64WzBMFc4OkzE12byUE",
-authDomain: "guys-22897.firebaseapp.com",
-databaseURL: "https://guys-22897.firebaseio.com",
-storageBucket: "guys-22897.appspot.com",
-messagingSenderId: "494530045444"
-};
-firebase.initializeApp(config);
-    </script>
-    <script>
-var a = firebase.database().ref('/guys');
+
+var a = firebase.database().ref('/egor');
 a.on('value', function(snapshot) {
 var snap = snapshot.val();
-var g= snap[3];
-document.getElementById("pic1").innerHTML =" <img src="+ g.url+ ">";
+var g= snap[1];
+document.getElementById("pic1").innerHTML =  g.opinion;
 });
     </script>
   </head>
   <body>
-    <nav id="primary_nav_wrap">
+       <nav id="primary_nav_wrap">
 <ul>
   <li class="current-menu-item"><a href="#">Home</a></li>
   <li><a href="#">Menu 1</a>
@@ -55,7 +57,11 @@ document.getElementById("pic1").innerHTML =" <img src="+ g.url+ ">";
   
 </ul>
 </nav>
-    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
      <div id="pic1"></div>
   </body>
 </html>
