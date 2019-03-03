@@ -20,12 +20,47 @@
   firebase.initializeApp(config);
 </script>
     <script>
-
 var a = firebase.database().ref('/egor');
 a.on('value', function(snapshot) {
 var snap = snapshot.val();
-var g= snap[1];
-document.getElementById("pic1").innerHTML =  g.opinion;
+var g= snap[2];
+var s= g.main
+var v= s.point.knowledge
+var x= v.knowledge
+document.getElementById("pic1").innerHTML =  g.main.point.money.Blowjob;
+});
+    </script>
+    <script>
+var a = firebase.database().ref('/egor');
+a.on('value', function(snapshot) {
+var snap = snapshot.val();
+var g= snap[2];
+var s= g.main
+var v= s.point.knowledge
+var x= v.knowledge
+document.getElementById("pic2").innerHTML =  g.main.point.money.Mafia;
+});
+    </script>
+    <script>
+var a = firebase.database().ref('/egor');
+a.on('value', function(snapshot) {
+var snap = snapshot.val();
+var g= snap[2];
+var s= g.main
+var v= s.point.knowledge
+var x= v.knowledge
+document.getElementById("pic3").innerHTML =  g.main.point.money.Mariage;
+});
+    </script>
+    <script>
+var a = firebase.database().ref('/egor');
+a.on('value', function(snapshot) {
+var snap = snapshot.val();
+var g= snap[2];
+var s= g.main
+var v= s.point.knowledge
+var x= v.knowledge
+document.getElementById("pic4").innerHTML =  g.main.point.money.Robbery;
 });
     </script>
   </head>
@@ -63,6 +98,9 @@ document.getElementById("pic1").innerHTML =  g.opinion;
     <br>
     <br>
      <div id="pic1"></div>
+     <div id="pic2"></div>
+     <div id="pic3"></div>
+     <div id="pic4"></div>
   </body>
 </html>
 
