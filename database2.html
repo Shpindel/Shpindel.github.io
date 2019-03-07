@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+   <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="buttonstyle.css">
+  </style>
+  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyA4X-pCnm0HjoVGpil15PEK2YV2afsyThM",
+    authDomain: "try1-f3ea2.firebaseapp.com",
+    databaseURL: "https://try1-f3ea2.firebaseio.com",
+    projectId: "try1-f3ea2",
+    storageBucket: "try1-f3ea2.appspot.com",
+    messagingSenderId: "417643392379"
+  };
+  firebase.initializeApp(config);
+</script>
+
+  <script>
+    function er1() {
+      firebase.database().ref("guys/" + document.getElementById("id_value").value).set(document.getElementById("id_value").value);
+      firebase.database().ref("guys/" + document.getElementById("id_value").value + "/name").set(document.getElementById("name_value").value);
+      firebase.database().ref("guys/" + document.getElementById("id_value").value + "/secondname").set(document.getElementById("secondname_value").value);
+      firebase.database().ref("guys/" + document.getElementById("id_value").value + "/lastname").set(document.getElementById("lastname_value").value);
+      firebase.database().ref("guys/" + document.getElementById("id_value").value + "/footsize").set(document.getElementById("footsize_value").value);
+      firebase.database().ref("guys/" + document.getElementById("id_value").value + "/url").set(document.getElementById("url_value").value);
+    }
+
+    function er2() {
+      var b = document.getElementById("id_show").value
+      var a = firebase.database().ref('/guys');
+      a.on('value', function(snapshot) {
+        var snap = snapshot.val();
+        var g = snap[b];
+        document.getElementById("inf").innerHTML ="ИД: " + b + "<br> Имя: " + g.name + "<br> Фамилия: " + g.secondname + "<br> Отчество: " + g.lastname + "<br> Размер ноги: " + g.footsize +"<br Фото: > <img src=" + g.url + ">";
+      });
+    }
+  </script>
+
+</head>
+
+<body>
+       <nav id="primary_nav_wrap">
+<ul>
+  <li class="current-menu-item"><a href="#">Home</a></li>
+  <li><a href="#">Menu 1</a>
+    <ul>
+      <li><a href="#">Sub Menu 1</a></li>
+      <li><a href="#">Sub Menu 2</a></li>
+      <li><a href="#">Sub Menu 3</a></li>
+      <li><a href="#">Sub Menu 4</a>
+        <ul>
+          <li><a href="#">Deep Menu 1</a>
+            <ul>
+              <li><a href="#">Sub Deep 1</a></li>
+              <li><a href="#">Sub Deep 2</a></li>
+              <li><a href="#">Sub Deep 3</a></li>
+                <li><a href="#">Sub Deep 4</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Deep Menu 2</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Sub Menu 5</a></li>
+    </ul>
+  </li>
+  
+</ul>
+</nav>
+
+  
+  ID
+  <input type="text" class="form-control" id="id_value" placeholder="" value="1" />
+  <br> name
+  <input type="text" class="form-control" id="name_value" placeholder="" value="alice" />
+  <br> secondname
+  <input type="text" class="form-control" id="secondname_value" placeholder="" value="follow" />
+  <br> lastname
+  <input type="text" class="form-control" id="lastname_value" placeholder="" value="whiterabbit" />
+  <br> footsize
+  <input type="text" class="form-control" id="footsize_value" placeholder="" value="37" />
+  <br> img
+  <input type="text" class="form-control" id="url_value" placeholder="" value="https://pp.userapi.com/c836126/v836126600/3e4d8/qiF0QnHMfX8.jpg" />
+  <br>
+  <br>
+  <a href="" class="button15" onclick="er1()">Добавить </a>
+  <br>
+  <br> ID
+  <input value="1" id="id_show" type="text" />
+  <br>
+  <br>
+  <a href="#" class="button15" onclick="er2()">Вывести </a>
+  <br>
+
+  <div id="inf"></div>
+
+
+</body>
+</html>
